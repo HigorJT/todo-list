@@ -25,16 +25,16 @@ searchBtn.addEventListener('click', () => {
     const p = document.createElement('p')
     const searchInput = document.querySelector('#search')
     const listItems = document.getElementsByTagName('li')
-    console.log(Array.from(listItems));
-    console.log(Array.from(listItems)[0].value);
-    const item = Array.from(listItems).find(i => i.innerText === searchInput.value)
-    console.log(item)
+
+    const newListItems = Array.from(listItems).map(i => i.innerText.replace('Deletar', ''))
+    
+    const item = newListItems.find(i => i === searchInput.value)
 
     if (item) {
         p.innerText = `A fruta ${item} foi encontrada na lista`
         searchWrapper.appendChild(p)
     } else {
-        p.innerText = `A fruta ${item} NÃO foi encontrada na lista`
+        p.innerText = `A fruta ${searchInput.value} NÃO foi encontrada na lista`
         searchWrapper.appendChild(p)
     }                     
 
