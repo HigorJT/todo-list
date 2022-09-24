@@ -25,7 +25,8 @@ searchBtn.addEventListener('click', () => {
     const p = document.createElement('p')
     const searchInput = document.querySelector('#search')
     const listItems = document.getElementsByTagName('li')
-
+    console.log(Array.from(listItems));
+    console.log(Array.from(listItems)[0].value);
     const item = Array.from(listItems).find(i => i.innerText === searchInput.value)
     console.log(item)
 
